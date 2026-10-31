@@ -30,19 +30,22 @@ export const SITE = {
   // Contact details — shown as written. Phone and email become clickable once real values are entered.
   phone: '[Phone number]',
   email: '[Email address]',
+  // From the salon's Google listing (O'BARBA FAMILY SALON SHIVPUR).
   address: {
-    line1: '[Shop / building name and street]',
-    line2: '[Area, city]',
-    postcode: '[PIN code]',
+    line1: 'Shivpur Road, above Max Showroom',
+    line2: 'Opposite Ambika Vatika, Varanasi, Uttar Pradesh',
+    postcode: '221002',
   },
 
   /**
    * Google Maps embed URL (Google Maps → Share → Embed a map → copy only the src="..." link).
    * Leave empty to show the map placeholder.
+   * Current value embeds the salon's own Google listing by its Maps ID (cid), so it shows the name, rating and pin.
    */
-  mapEmbedUrl: '',
+  mapEmbedUrl: 'https://maps.google.com/maps?cid=13778740449314716402&output=embed',
   // Optional "Get directions" link (Google Maps → Share → Copy link). Leave empty to hide the button.
-  mapLink: '',
+  // Current value starts Google Maps directions to the salon's exact pin (25.3623978, 82.9685056).
+  mapLink: 'https://www.google.com/maps/dir/?api=1&destination=25.3623978%2C82.9685056',
 
   openingHours: [
     { days: 'Monday – Friday', hours: '[Opening hours]' },
@@ -58,7 +61,8 @@ export const SITE = {
   },
 
   // Optional link where clients can leave a public review (e.g. your Google review link).
-  reviewLink: '',
+  // Current value opens the salon's Google listing, where its reviews and "Write a review" button are.
+  reviewLink: 'https://maps.google.com/?cid=13778740449314716402',
 
   // Makeup artist profile — keep the placeholders until the artist's real details are provided.
   makeupArtist: {
@@ -69,8 +73,8 @@ export const SITE = {
   },
 
   /**
-   * Shows small "sample content" notes on galleries, team and reviews.
-   * Set to false once real OBARBA photos, team details and client reviews are in place.
+   * Shows small "sample content" notes on galleries and team.
+   * Set to false once real OBARBA photos and team details are in place.
    */
   showSampleNotices: true,
 

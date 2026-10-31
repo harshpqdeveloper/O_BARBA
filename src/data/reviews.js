@@ -1,48 +1,33 @@
 /**
  * OBARBA — client reviews.
  *
- * Everything below is SAMPLE placeholder text, clearly labelled on the website.
- * Replace with genuine reviews from real OBARBA clients (with their permission),
- * then set `sample: false` on each review you add.
+ * Genuine 5★ Google reviews of O'BARBA Family Salon, Shivpur (Varanasi), quoted word for word
+ * from the salon's Google listing. Reviewers are shown by first name and initial.
+ * The first review is featured on the Reviews page; the first three also appear on the Home page.
+ * Add a review with `sample: true` to show it as a labelled placeholder instead.
  */
 export const REVIEWS = [
   {
     quote:
-      'Sample review — replace with a genuine client review. Describe the experience, the service received and how the client felt afterwards.',
-    name: 'Client Name',
-    service: 'Men’s Haircut',
-    sample: true,
+      'Great experience! The barber Ritesh bhaiya listened carefully to what I wanted and gave me exactly the haircut I asked for. Clean salon, friendly staff, and reasonable prices. Highly recommend!',
+    name: 'Medha V.',
+    service: 'Haircut · Google review',
   },
   {
     quote:
-      'Sample review — replace with a genuine client review about a bridal or party makeup appointment.',
-    name: 'Client Name',
-    service: 'Bridal Makeup',
-    sample: true,
+      'Great experience! The haircut was exactly how I wanted. The stylist ...the name of stylist is Raj was skilled and understood my requirements very well. Clean and professional environment. Highly recommend.',
+    name: 'Ayushi S.',
+    service: 'Haircut · Google review',
   },
   {
     quote:
-      'Sample review — replace with a genuine client review about a women’s hair styling or treatment visit.',
-    name: 'Client Name',
-    service: 'Hair Styling',
-    sample: true,
+      'Last month I went here for a haircut and I trusted Mr. Ritesh with the most suitable hairstyle as per my face and desired hair length and he did gave me a great haircut. Thanks to Mr. Ritesh and the experience was really good.',
+    name: 'Anushka D.',
+    service: 'Haircut · Google review',
   },
   {
-    quote: 'Sample review — replace with a genuine client review about a beard styling or grooming service.',
-    name: 'Client Name',
-    service: 'Beard Styling',
-    sample: true,
-  },
-  {
-    quote: 'Sample review — replace with a genuine client review about a facial or beauty service.',
-    name: 'Client Name',
-    service: 'Beauty Services',
-    sample: true,
-  },
-  {
-    quote: 'Sample review — replace with a genuine client review about a party or special occasion look.',
-    name: 'Client Name',
-    service: 'Party Makeup',
-    sample: true,
+    quote: 'Nice ambience, good service of staff specially prity and Shanaya',
+    name: 'Pragya P.',
+    service: 'Google review',
   },
 ];

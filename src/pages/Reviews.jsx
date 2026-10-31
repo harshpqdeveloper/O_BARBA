@@ -1,6 +1,5 @@
 import PageHero from '../components/ui/PageHero';
 import SectionHeading from '../components/ui/SectionHeading';
-import SampleNotice from '../components/ui/SampleNotice';
 import { WhatsAppButton } from '../components/ui/Buttons';
 import Icon from '../components/ui/Icon';
 import ReviewCard from '../components/cards/ReviewCard';
@@ -30,9 +29,6 @@ export default function Reviews() {
 
       <section className="section">
         <div className="container">
-          <SampleNotice className="sample-notice--center">
-            The reviews below are sample placeholders and will be replaced with genuine client feedback.
-          </SampleNotice>
           {featured && (
             <div className="review-featured">
               <ReviewCard {...featured} featured />
