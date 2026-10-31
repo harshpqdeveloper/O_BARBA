@@ -22,6 +22,7 @@ function paginate(items, size) {
  * - no autoplay when the visitor prefers reduced motion (indicators still work)
  * - `perView` maps a minimum viewport width to items per set
  * - `layout` adds a modifier class to each set, e.g. "editorial"
+ * - `arrows` always shows previous / next buttons instead of indicator dots
  */
 export default function FadeSlider({
   items,
@@ -30,6 +31,7 @@ export default function FadeSlider({
   perView = DEFAULT_PER_VIEW,
   interval = 6500,
   layout = 'row',
+  arrows = false,
   className = '',
 }) {
   const count = Math.max(1, useBreakpointValue(perView) ?? 1);
@@ -100,7 +102,7 @@ export default function FadeSlider({
 
       {total > 1 && (
         <div className="fade-slider__controls">
-          {total <= 6 ? (
+          {total <= 6 && !arrows ? (
             <div className="slider-dots">
               {pages.map((_, i) => (
                 <button

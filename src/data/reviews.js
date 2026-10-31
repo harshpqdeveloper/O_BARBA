@@ -3,7 +3,7 @@
  *
  * Genuine 5★ Google reviews of O'BARBA Family Salon, Shivpur (Varanasi), quoted word for word
  * from the salon's Google listing. Reviewers are shown by first name and initial.
- * The first review is featured on the Reviews page; the first three also appear on the Home page.
+ * They appear in this order in the review slider on the Home and Reviews pages.
  * Add a review with `sample: true` to show it as a labelled placeholder instead.
  *
  * Optional, as published with the review on Google (loaded from Google, not stored in this project):

@@ -8,12 +8,11 @@ import Icon from '../components/ui/Icon';
 import SampleNotice from '../components/ui/SampleNotice';
 import { ButtonLink, TextLink, WhatsAppButton } from '../components/ui/Buttons';
 import ServiceCard from '../components/cards/ServiceCard';
-import ReviewCard from '../components/cards/ReviewCard';
 import BookingCTA from '../components/sections/BookingCTA';
+import ReviewSlider from '../components/sections/ReviewSlider';
 import { IMAGES } from '../config/images';
 import { HOME_SERVICES } from '../data/services';
 import { HOME_LOOKBOOK } from '../data/gallery';
-import { REVIEWS } from '../data/reviews';
 import { enquiryMessage } from '../utils/whatsapp';
 import { usePageMeta } from '../hooks/usePageMeta';
 
@@ -151,11 +150,7 @@ export default function Home() {
               </>
             }
           />
-          <div className="review-grid">
-            {REVIEWS.slice(0, 3).map((review, i) => (
-              <ReviewCard key={i} {...review} />
-            ))}
-          </div>
+          <ReviewSlider />
           <div className="section-actions">
             <TextLink to="/reviews">Read all reviews</TextLink>
           </div>

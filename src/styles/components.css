@@ -879,10 +879,9 @@
 
 /* ── Reviews ──────────────────────────────────────────────────────── */
 
-.review-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(16px, 2vw, 28px);
+/* Cards fill their slide so the cards shown together line up */
+.review-slider .review-card {
+  height: 100%;
 }
 
 .review-card {
@@ -938,10 +937,6 @@
   transform: scale(1.05);
 }
 
-.review-card--featured .review-card__photo {
-  align-self: center;
-}
-
 .review-card__author {
   display: flex;
   align-items: center;
@@ -982,33 +977,6 @@
   color: var(--text-dim);
 }
 
-.review-featured {
-  margin-bottom: clamp(56px, 7vw, 96px);
-}
-
-.review-card--featured {
-  max-width: 860px;
-  margin-inline: auto;
-  align-items: center;
-  text-align: center;
-  background: transparent;
-  border: 0;
-}
-
-.review-card--featured .review-card__top {
-  flex-direction: column;
-}
-
-.review-card--featured .review-card__quote {
-  font-size: clamp(22px, 2.6vw, 32px);
-}
-
-.review-card--featured .review-card__author {
-  padding-top: 0;
-  border-top: 0;
-  text-align: left;
-}
-
 .badge {
   padding: 5px 11px;
   border: 1px solid var(--line);
@@ -1019,18 +987,6 @@
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--text-dim);
-}
-
-@media (max-width: 1024px) {
-  .review-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .review-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
 }
 
 /* ── Team ─────────────────────────────────────────────────────────── */

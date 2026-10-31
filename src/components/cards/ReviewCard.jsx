@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import Icon from '../ui/Icon';
 import Lightbox from '../gallery/Lightbox';
 
@@ -15,15 +16,15 @@ const initials = (name) =>
  * `avatar` replaces the initials with the reviewer's photo (initials return if it fails to load);
  * `photo` adds a thumbnail of the review's photo that opens full size in the image viewer.
  */
-export default function ReviewCard({ quote, name, service, avatar, photo, sample, featured = false }) {
+export default function ReviewCard({ quote, name, service, avatar, photo, sample }) {
   const [avatarFailed, setAvatarFailed] = useState(false);
   const [photoFailed, setPhotoFailed] = useState(false);
   const [viewing, setViewing] = useState(null);
 
   return (
-    <figure className={`review-card${featured ? ' review-card--featured' : ''}`}>
+    <figure className="review-card">
       <div className="review-card__top">
-        <Icon name="quote" size={featured ? 34 : 26} className="review-card__mark" />
+        <Icon name="quote" size={26} className="review-card__mark" />
         {sample && <span className="badge">Sample review</span>}
       </div>
       <blockquote className="review-card__quote">
@@ -47,14 +48,17 @@ export default function ReviewCard({ quote, name, service, avatar, photo, sample
           <span className="review-card__service">{service}</span>
         </span>
       </figcaption>
-      {photo && (
-        <Lightbox
-          items={[{ image: { src: photo.full, alt: photo.alt }, caption: `${name} · Google review photo` }]}
-          index={viewing}
-          onClose={() => setViewing(null)}
-          onChange={setViewing}
-        />
-      )}
+      {/* Rendered on <body> so the viewer stays open even if a slider hides this card's slide */}
+      {photo &&
+        createPortal(
+          <Lightbox
+            items={[{ image: { src: photo.full, alt: photo.alt }, caption: `${name} · Google review photo` }]}
+            index={viewing}
+            onClose={() => setViewing(null)}
+            onChange={setViewing}
+          />,
+          document.body,
+        )}
     </figure>
   );
 }

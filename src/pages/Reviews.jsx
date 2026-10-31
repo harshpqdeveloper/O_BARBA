@@ -2,16 +2,14 @@ import PageHero from '../components/ui/PageHero';
 import SectionHeading from '../components/ui/SectionHeading';
 import { WhatsAppButton } from '../components/ui/Buttons';
 import Icon from '../components/ui/Icon';
-import ReviewCard from '../components/cards/ReviewCard';
 import BookingCTA from '../components/sections/BookingCTA';
+import ReviewSlider from '../components/sections/ReviewSlider';
 import { IMAGES } from '../config/images';
 import { SITE } from '../config/site';
-import { REVIEWS } from '../data/reviews';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function Reviews() {
   usePageMeta('Reviews', 'What OBARBA clients say about their grooming, hair, beauty and makeup experiences.');
-  const [featured, ...rest] = REVIEWS;
 
   return (
     <>
@@ -29,16 +27,7 @@ export default function Reviews() {
 
       <section className="section">
         <div className="container">
-          {featured && (
-            <div className="review-featured">
-              <ReviewCard {...featured} featured />
-            </div>
-          )}
-          <div className="review-grid">
-            {rest.map((review, i) => (
-              <ReviewCard key={i} {...review} />
-            ))}
-          </div>
+          <ReviewSlider />
         </div>
       </section>
 
