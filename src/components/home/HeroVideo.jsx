@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { HERO_SCENES, HERO_TIMING } from '../../config/videos';
 import { useAutoAdvance } from '../../hooks/useAutoAdvance';
-import { useMediaQuery, usePrefersReducedMotion } from '../../hooks/useMedia';
+import { usePrefersReducedMotion } from '../../hooks/useMedia';
 
-const PORTRAIT_QUERY = '(max-width: 760px), (orientation: portrait) and (max-width: 1100px)';
 const saveData = typeof navigator !== 'undefined' && navigator.connection?.saveData === true;
 
 /** One background scene: a muted looping video (or a still poster when motion is off). */
@@ -65,7 +64,6 @@ function HeroScene({ media, isActive, isLeaving, running, motion, first }) {
  * The hero content is passed as children so the scene indicators follow it in tab order.
  */
 export default function HeroVideo({ running, children }) {
-  const portrait = useMediaQuery(PORTRAIT_QUERY);
   const reducedMotion = usePrefersReducedMotion();
   const motion = !reducedMotion && !saveData;
 
@@ -91,7 +89,7 @@ export default function HeroVideo({ running, children }) {
         {HERO_SCENES.map((scene, i) => (
           <HeroScene
             key={scene.id}
-            media={portrait ? scene.mobile : scene.desktop}
+            media={scene.media}
             isActive={i === active}
             isLeaving={i === leaving}
             running={running}

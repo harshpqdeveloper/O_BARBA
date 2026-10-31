@@ -3,10 +3,10 @@
  *
  * The hero shows the men's scene first, slowly cross-fades to the women's scene,
  * then back again, continuously. Each scene has:
- *   desktop — 16:9 MP4 (1280×720) for laptops and desktops
- *   mobile  — 9:16 portrait MP4 (540×960), framed for phones and portrait tablets
- *   poster  — still shown instantly while the video loads, and to visitors who
- *             prefer reduced motion or have data saver switched on
+ *   video  — 16:9 MP4 (1280×720), used on every screen. Desktops fill the hero with it;
+ *            phones and portrait tablets show the whole frame across the top of the hero.
+ *   poster — still shown instantly while the video loads, and to visitors who
+ *            prefer reduced motion or have data saver switched on
  *
  * To replace a scene, overwrite the files in /public/videos keeping the same names,
  * or point the paths below at new files. Use H.264 MP4 without audio, ideally ≥ 14 s long
@@ -22,14 +22,12 @@ export const HERO_SCENES = [
   {
     id: 'men',
     label: 'Men’s grooming',
-    desktop: { ...clip('hero-men-barber'), position: 'center 30%' },
-    mobile: { ...clip('hero-men-barber-mobile'), position: 'center 30%' },
+    media: { ...clip('hero-men-barber'), position: 'center 30%' },
   },
   {
     id: 'women',
     label: 'Women’s beauty',
-    desktop: { ...clip('hero-women-makeup'), position: 'center 30%' },
-    mobile: { ...clip('hero-women-makeup-mobile'), position: 'center 30%' },
+    media: { ...clip('hero-women-makeup'), position: 'center 30%' },
   },
 ];
 
