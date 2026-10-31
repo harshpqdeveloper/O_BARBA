@@ -6,7 +6,7 @@ import { WhatsAppButton } from '../components/ui/Buttons';
 import { IMAGES } from '../config/images';
 import { SITE } from '../config/site';
 import { ENQUIRY_OPTIONS } from '../data/services';
-import { whatsappLink } from '../utils/whatsapp';
+import { whatsappChatLink, whatsappLink } from '../utils/whatsapp';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 const isPlaceholder = (value) => !value || value.includes('[');
@@ -45,7 +45,8 @@ function EnquiryForm() {
       data.time && `Preferred time: ${data.time}`,
       data.notes && `Notes: ${data.notes}`,
     ].filter(Boolean);
-    const link = whatsappLink(lines.join('\n'));
+    // The form sends what the visitor typed, so it bypasses the site-wide override message.
+    const link = whatsappChatLink(lines.join('\n'));
     // Not using the "noopener" feature string: with it, window.open always returns null.
     const win = window.open(link, '_blank');
     if (win) win.opener = null;

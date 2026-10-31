@@ -17,8 +17,15 @@ export const SITE = {
    * While this still contains "X", booking buttons open WhatsApp with the message ready
    * but without a recipient, so they keep working during setup.
    */
-  whatsappNumber: '91XXXXXXXXXX',
+  whatsappNumber: '919335052280',
   whatsappDefaultMessage: 'Hello OBARBA, I would like to book an appointment. Please share the available slots.',
+  /**
+   * When set, every WhatsApp button and link opens with this message instead of its own
+   * booking / enquiry text. The contact form still sends the details the visitor typed.
+   * Set to '' to go back to the per-button messages.
+   */
+  whatsappMessageOverride:
+    "Hey Harsh! I really liked your OBARBA website. The design looks amazing! I'd love to know more about it. Can we discuss this further? 😊",
 
   // Contact details — shown as written. Phone and email become clickable once real values are entered.
   phone: '[Phone number]',
