@@ -32,8 +32,8 @@
   --font-body: 'Jost', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
   /* Layout */
-  --container: 1240px;
-  --gutter: clamp(20px, 5vw, 56px);
+  --container: 1760px;
+  --gutter: clamp(20px, 4vw, 56px);
   --section-y: clamp(96px, 11vw, 168px);
   --header-h: 84px;
   --radius: 6px;
