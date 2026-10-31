@@ -1,0 +1,70 @@
+/* ==========================================================================
+   OBARBA — theme tokens
+   Change colours, fonts and spacing here; the whole site follows.
+   ========================================================================== */
+
+:root {
+  /* Surfaces */
+  --black: #070605;
+  --bg: #0b0a08;
+  --bg-alt: #100e0b;
+  --surface: #15120e;
+
+  /* Lines */
+  --line: rgba(201, 162, 94, 0.24);
+  --line-strong: rgba(201, 162, 94, 0.5);
+  --line-soft: rgba(255, 255, 255, 0.07);
+
+  /* Text */
+  --text: #f2ece1;
+  --text-muted: #b5ab9a;
+  --text-dim: #8a8070;
+
+  /* Brand gold */
+  --gold: #c9a25e;
+  --gold-light: #e0c088;
+  --accent: var(--gold);
+  --accent-light: var(--gold-light);
+  --on-accent: #17130c;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Jost', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Layout */
+  --container: 1240px;
+  --gutter: clamp(20px, 5vw, 56px);
+  --section-y: clamp(96px, 11vw, 168px);
+  --header-h: 84px;
+  --radius: 6px;
+  --radius-lg: 10px;
+
+  /* Motion — kept deliberately calm */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --fade: 1200ms;
+  --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.85);
+}
+
+@media (max-width: 720px) {
+  :root {
+    --header-h: 70px;
+  }
+}
+
+/* Men's pages: antique gold, sharper tailored corners */
+.theme-men {
+  --accent: #c49a52;
+  --accent-light: #ddb978;
+  --radius: 2px;
+  --radius-lg: 3px;
+}
+
+/* Women's pages: soft champagne gold, gentler rounded corners */
+.theme-women {
+  --accent: #d9b993;
+  --accent-light: #ecd5b8;
+  --line: rgba(217, 185, 147, 0.24);
+  --line-strong: rgba(217, 185, 147, 0.5);
+  --radius: 12px;
+  --radius-lg: 18px;
+}
