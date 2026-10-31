@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import Icon from '../ui/Icon';
+import Lightbox from '../gallery/Lightbox';
 
 const initials = (name) =>
   name
@@ -8,8 +10,16 @@ const initials = (name) =>
     .slice(0, 2)
     .toUpperCase();
 
-/** Testimonial card. Sample reviews carry a visible "Sample" label. */
-export default function ReviewCard({ quote, name, service, sample, featured = false }) {
+/**
+ * Testimonial card. Sample reviews carry a visible "Sample" label.
+ * `avatar` replaces the initials with the reviewer's photo (initials return if it fails to load);
+ * `photo` adds a thumbnail of the review's photo that opens full size in the image viewer.
+ */
+export default function ReviewCard({ quote, name, service, avatar, photo, sample, featured = false }) {
+  const [avatarFailed, setAvatarFailed] = useState(false);
+  const [photoFailed, setPhotoFailed] = useState(false);
+  const [viewing, setViewing] = useState(null);
+
   return (
     <figure className={`review-card${featured ? ' review-card--featured' : ''}`}>
       <div className="review-card__top">
@@ -19,15 +29,32 @@ export default function ReviewCard({ quote, name, service, sample, featured = fa
       <blockquote className="review-card__quote">
         <p>{quote}</p>
       </blockquote>
+      {photo && !photoFailed && (
+        <button type="button" className="review-card__photo" onClick={() => setViewing(0)} aria-label={`View photo from ${name}’s review`}>
+          <img src={photo.thumb} alt={photo.alt} loading="lazy" referrerPolicy="no-referrer" onError={() => setPhotoFailed(true)} />
+        </button>
+      )}
       <figcaption className="review-card__author">
         <span className="review-card__avatar" aria-hidden="true">
-          {initials(name)}
+          {avatar && !avatarFailed ? (
+            <img src={avatar} alt="" loading="lazy" referrerPolicy="no-referrer" onError={() => setAvatarFailed(true)} />
+          ) : (
+            initials(name)
+          )}
         </span>
         <span>
           <span className="review-card__name">{name}</span>
           <span className="review-card__service">{service}</span>
         </span>
       </figcaption>
+      {photo && (
+        <Lightbox
+          items={[{ image: { src: photo.full, alt: photo.alt }, caption: `${name} · Google review photo` }]}
+          index={viewing}
+          onClose={() => setViewing(null)}
+          onChange={setViewing}
+        />
+      )}
     </figure>
   );
 }
